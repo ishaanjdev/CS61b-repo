@@ -46,20 +46,26 @@ public double calcForceExertedBy(Planet p){
 
 public double calcForceExertedByX(Planet p){
 	/* if "this" has a higher value than p in the x-direction, then the force needs to be negative.*/
-	if (this.xxPos < p.xxPos){
+	if (this.xxPos > p.xxPos){
 			return (this.calcForceExertedBy(p) * (p.xxPos - this.xxPos)) / this.calcDistance(p);
 	}
+	else if (this.xxPos < p.xxPos) {
+		return (this.calcForceExertedBy(p) * (p.xxPos - this.xxPos)) / this.calcDistance(p);
+	}
 	else {
-		return (this.calcForceExertedBy(p) * (this.xxPos - p.xxPos)) / this.calcDistance(p);
+		return 0;
 	}
 }
 
 public double calcForceExertedByY(Planet p){
-	if (this.yyPos < p.yyPos){
+	if (this.yyPos > p.yyPos){
 			return (this.calcForceExertedBy(p) * (p.yyPos - this.yyPos)) / this.calcDistance(p);
 	}
+	else if (this.yyPos < p.yyPos){
+		return (this.calcForceExertedBy(p) * (p.yyPos - this.yyPos)) / this.calcDistance(p);
+	}
 	else {
-		return (this.calcForceExertedBy(p) * (this.yyPos - p.yyPos)) / this.calcDistance(p);
+		return 0;
 	}
 }
 public double calcNetForceExertedByX(Planet[] manyp){
